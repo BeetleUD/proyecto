@@ -1,13 +1,26 @@
 package proyecto;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
+import java.io.IOException;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import java.net.Socket; // servidor
+import java.net.ServerSocket; // cliente
+
  /*
  //--------------------------------------------------------------
  - Base para interfas y seleccion.
  - la consulta debe arrojar todo lo solicitado o un dato de busqueda en especifico(?)
- - Probar escructurar los datos en un arbol binario podria se una buena idea (cont: es largo de desarrollar)
+ - Probar con una estructura tipo "TDA" (oculta en comentarios), adaptar el menu de una extructura de arbol binario (cont: es largo de desarrollar)
+ - Se inicia prueba de conexio cliente servidor
+ -
 
- Nota: Probar con una estructura tipo "TDA" puede ser util, nose si quiero estructurar los datos en un arbol.
+ Nota: Si se inicia el cliente sin servidor no ocurrira nada.
  //--------------------------------------------------------------
 */
 
@@ -15,6 +28,34 @@ public class cliente
 {
     public static void main(String[]args)
     {
+        final String HOST = ""; // direccion ip queda a definir --- la direccion estara precente en pruebas mas no en codigo para evitar el famoso "Doxxeo"
+        final int PORT = 7327; // el numero de puerto queda a definir --- debe coincidir con el del servidor --- pero es provicional
+
+        DataInputStream in; // puerto de entrada
+        DataOutputStream out; // puerto de salida
+        
+        try
+        {
+            Socket sc = new Socket(HOST, PORT);
+            
+            in = new DataInputStream(sc.getInputStream());
+            out = new DataOutputStream(sc.getOutputStream());
+
+            out.writeUTF("Mensaje enviado");
+
+            String mensaje = in.readUTF();
+
+            System.out.println(mensaje);
+            sc.close();
+        
+        } catch (IOException ex)
+        {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+}
+/*
         int opcion = 0;
 		int opc = 0;
         Arbol arbol = new Arbol(); // aun no es seguro y esta sujeto a cambios
@@ -67,5 +108,4 @@ public class cliente
                 JOptionPane.showMessageDialog( null,"Error: Mismatch " + e.getMessage());
             }
         }while(opcion!=9);
-    }
-}
+*/
