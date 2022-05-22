@@ -4,10 +4,8 @@ import java.io.IOException;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import java.net.Socket; // servidor
 import java.net.ServerSocket; // cliente
 
