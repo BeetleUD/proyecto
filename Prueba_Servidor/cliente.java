@@ -1,4 +1,4 @@
-package proyecto;
+package Prueba_Servidor;
 
 import java.io.IOException;
 //import javax.swing.JOptionPane;

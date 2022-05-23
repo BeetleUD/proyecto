@@ -1,15 +1,19 @@
-package Hilo;
+package Proyecto;
 
 import java.io.IOException;
 import java.net.Socket;
-
 import java.net.ServerSocket;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+/*
+//--------------------------------------------------------------
+- 
+Nota:
+//--------------------------------------------------------------
+*/
 
 public class servidor
 {
@@ -29,17 +33,17 @@ public class servidor
                 DataInputStream in = new DataInputStream(sc.getInputStream());
                 DataOutputStream out = new DataOutputStream(sc.getOutputStream());
 
-                out.writeUTF("Inceste nombre de ususario:");
+                out.writeUTF("Incerte nombre de ususario: ");
                 String usuario = in.readUTF();
 
                 servidor_h hilo = new servidor_h(in, out, usuario);
-                hilo.start(); //inicia hilo
+                hilo.start(); //inicia hilo dedicado por usuario
             
-                System.out.println("Conexion establecida entre" + usuario);
+                System.out.println("Conexion establecida con " + usuario);
             }
-        }catch (IOException ex)
+        }catch (IOException e) // ex
         {
-            Logger.getLogger(servidor.class.getName()).log(Level.SEVERE, null, ex);
+            e.printStackTrace(); // Logger.getLogger(servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
