@@ -4,17 +4,16 @@ import java.io.IOException;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.net.Socket; // servidor
-import java.net.ServerSocket; // cliente
+
+import java.net.Socket; // servidor - es recomendable tener ambos poro no necesario
+import java.net.ServerSocket; // cliente - es recomendable tener ambos poro no necesario
 
 /*
 //--------------------------------------------------------------
-- Retiene y se maneja con 2 tipos de datos
-- Manipula en bsase a parametros pre-definidos por la interfas del cliente para recibir mas datos/ordenes.
-- Clase "Factory" no muy adecuada.
-- 
+- Tiene como tarea atender al cliente, dara confirmacion
 
 Nota: Si el servidor no esta activo para cuando la conexion inicia entonces no habra respuesta. 
 //--------------------------------------------------------------

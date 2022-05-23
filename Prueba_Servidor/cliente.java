@@ -4,20 +4,19 @@ import java.io.IOException;
 //import javax.swing.JOptionPane;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.net.Socket; // servidor
-import java.net.ServerSocket; // cliente
+
+import java.net.Socket; // servidor - es recomendable tener ambos poro no necesario
+import java.net.ServerSocket; // cliente - es recomendable tener ambos poro no necesario
 
  /*
  //--------------------------------------------------------------
- - Base para interfas y seleccion.
- - la consulta debe arrojar todo lo solicitado o un dato de busqueda en especifico(?)
- - Probar con una estructura tipo "TDA" (oculta en comentarios), adaptar el menu de una extructura de arbol binario (cont: es largo de desarrollar)
- - Se inicia prueba de conexio cliente servidor
- -
+ - Conexion establecida
+ - Incluye puertos de recepcion accesibles (Puede variar)
 
- Nota: Si se inicia el cliente sin servidor no ocurrira nada.
+ Nota: Interfas con JOPane descartada
  //--------------------------------------------------------------
 */
 

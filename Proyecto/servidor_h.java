@@ -42,6 +42,8 @@ public class servidor_h extends Thread
                     case 1: // agregara tipo de dato - servidor
                     int aleatorio = in.readInt();
                     ImpNum(f, aleatorio);
+                    System.out.println("El usuarion " + usuario + " a realizado un cambio."); // confirma adicion
+                    out.writeUTF("Numero almacenado.\n");
                     break;
                     case 2: // consultara los tipos de datos - servidor
                     break;
