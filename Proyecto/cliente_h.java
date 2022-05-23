@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 /*
 //--------------------------------------------------------------
-- 
-Nota:
+- Usuarios identificados como idependientes deswde diferentes instancias.
+ 
+Nota: Descripcion detallada mas adelante, guia mediante comentarios por referencia.
 //--------------------------------------------------------------
 */
 

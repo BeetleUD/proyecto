@@ -8,8 +8,9 @@ import java.io.FileWriter;
 
 /*
 //--------------------------------------------------------------
-- 
-Nota:
+- Complemento que sive al cliente, una instancia que confirma y responde.
+
+Nota: Descripcion detallada mas adelante, guia mediante comentarios por referencia.
 //--------------------------------------------------------------
 */
 

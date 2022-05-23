@@ -10,8 +10,9 @@ import java.io.DataOutputStream;
 
 /*
 //--------------------------------------------------------------
-- 
-Nota:
+- Se debe corroborar tanto IP como puerto antes de su ejecucion.
+
+Nota: Debe estar activo sntes de activar el cliente.
 //--------------------------------------------------------------
 */
 

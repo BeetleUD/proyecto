@@ -10,8 +10,9 @@ import java.io.DataOutputStream;
 
 /*
 //--------------------------------------------------------------
-- 
-Nota:
+- La IP debe ser correcta y ser introducida antes de su ejecucucion y luego de tener el servidor en linea.
+
+Nota: Si el cliente no corre habra que modificar el IOException "e" a "ex".
 //--------------------------------------------------------------
 */
 
