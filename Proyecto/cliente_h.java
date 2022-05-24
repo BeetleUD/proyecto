@@ -7,8 +7,11 @@ import java.util.Scanner;
 /*
 //--------------------------------------------------------------
 - Usuarios identificados como idependientes deswde diferentes instancias.
- 
-Nota: Descripcion detallada mas adelante, guia mediante comentarios por referencia.
+- Al consultar datos este solo señalara la cantidad de datos en el arreglo
+- Puedo trabajar con esto haciendo que el arreglo busque un numero espesifico, esto no se hizo asi pues para una busqueda de este tipo debi iniciar con un arbol binario como base
+- Interprete el actualizar como brindar una list de lo mas reciente, no obstante otra opcion puede reflejar el cambio en tiempo real en una ventana emergente, tendria que investigar al respecto
+
+Nota: Eliminar archivos y salir de la aplicacion queda pendiente.
 //--------------------------------------------------------------
 */
 
@@ -57,8 +60,18 @@ public class cliente_h extends Thread
                     System.out.println(mensaje);
                     break;
                     case 2: // consultara los tipos de datos - cliente
+                    int almacenado = in.readInt();
+                    System.out.println("Se tienen " + almancenado + " tipos de datos almacenados."); // refiriendoce a un conjunto de 2 como 1
                     break;
                     case 3: // actializara el conjunto  - cliente
+                    System.out.println("----------------------------\n");
+                    int limite = in.readInt(); // debe escupir datos segun se confirman
+
+                    for(int i = 0; i < limite; i++)
+                    {
+                        System.out.println(in.readInt());
+                    }
+                    System.out.println("----------------------------\n");
                     break;
                     case 4: // eliminara un elemento compuesto - cliente
                     break;
