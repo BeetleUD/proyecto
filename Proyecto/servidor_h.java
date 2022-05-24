@@ -40,7 +40,7 @@ public class servidor_h extends Thread
     public void run()
     {
         int opcion;
-        File f = new File("Reporte_Generado.txt"); // imprime archivo de texto plano con datos referentes
+        File f = new File("Reporte_Generado.txt"); // imprime archivo de texto plano con datos referentes (ejem: el reporte señalara el usuario y el dato introducido)
         boolean salir = false;
 
         while(!salir)
@@ -61,7 +61,7 @@ public class servidor_h extends Thread
                     int almacenado = AlmTot(f); // almacenado total
                     out.writeInt(almacenado); // devuelve una lista de los numeros generados independientemente del usuario de origen
                     break;
-                    case 3: // actializara el conjunto - servidor
+                    case 3: // actualizara el conjunto - servidor
                     ArrayList<Integer> NumS = NumList(f);
                     out.writeInt(NumS.size());
 
@@ -71,6 +71,9 @@ public class servidor_h extends Thread
                     }
                     break;
                     case 4: // eliminara un elemento compuesto - servidor
+                    NumS.remove(new Integer(NumS)); // Recibe el dato exacto a buscar --------------- sujeto a pruebas...
+                    System.out.println("El usuarion " + usuario + " a realizado un cambio."); // confirma adicion
+                    out.writeUTF("Se a eliminado un dato almacenado.\n");
                     break;
                     case 5: // saldra de la aplicacion - servidor
                     System.out.println("Cerrando secion...");
@@ -85,6 +88,7 @@ public class servidor_h extends Thread
                 e.printStackTrace(); // Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
         try
         {
             sc.close();
@@ -92,7 +96,7 @@ public class servidor_h extends Thread
         {
             // no se que poner aqui
         }
-        System.out.println("Conexion terminada con " + usuario);
+        System.out.println(" --- Conexion terminada con " + usuario + " --- ");
     }
     // este texto plano es lo que se vera reflejado como contenido en el archivo generado
     public void ImpNum(File f, int aleatorio) throws IOException

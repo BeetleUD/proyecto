@@ -41,11 +41,11 @@ public class cliente_h extends Thread
             try
             {
                 System.out.println("----------------------------\n"
-                + "0.- Agregar                 \n"
-                + "1.- Consultar               \n"
-                + "2.- Actualizar              \n"
-                + "3.- Eliminar                \n"
-                + "4.- Salir                   \n"
+                + "1.- Agregar                 \n"
+                + "2.- Consultar               \n"
+                + "3.- Actualizar              \n"
+                + "4.- Eliminar                \n"
+                + "5.- Salir                   \n"
                 + "----------------------------\n");
 
                 opcion = sn.nextInt();
@@ -64,7 +64,7 @@ public class cliente_h extends Thread
                     int almacenado = in.readInt();
                     System.out.println("Se tienen " + almancenado + " tipos de datos almacenados."); // refiriendoce a un conjunto de 2 como 1
                     break;
-                    case 3: // actializara el conjunto  - cliente
+                    case 3: // actualizara el conjunto  - cliente
                     System.out.println("----------------------------\n");
                     int limite = in.readInt(); // debe escupir datos segun se confirman
 
@@ -75,6 +75,11 @@ public class cliente_h extends Thread
                     System.out.println("----------------------------\n");
                     break;
                     case 4: // eliminara un elemento compuesto - cliente
+                    System.out.println("Introdusca el valor del dato a eliminar: ");
+                    
+                    out.writeInt(Elim);
+                    NumS.remove(new Integer(Elim)); // Recibe el dato exacto a buscar --------------- sujeto a pruebas...
+
                     break;
                     case 5: // saldra de la aplicacion - cliente
                     salir = true;

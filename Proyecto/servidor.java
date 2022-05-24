@@ -22,10 +22,10 @@ public class servidor
     {
         try 
         {
-            ServerSocket server = new ServerSocket(7327);
+            ServerSocket server = new ServerSocket(5050);
             Socket sc;
 
-            System.out.println("Servidor iniciado");
+            System.out.println("--- Servidor iniciado ---");
 
             while(true)
             {
@@ -40,7 +40,7 @@ public class servidor
                 servidor_h hilo = new servidor_h(in, out, usuario, sc);
                 hilo.start(); //inicia hilo dedicado por usuario
             
-                System.out.println("Conexion establecida con " + usuario);
+                System.out.println("Conexion establecida con " + usuario + ".");
             }
         }catch (IOException e) // ex
         {
