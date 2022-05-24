@@ -10,8 +10,9 @@ import java.util.Scanner;
 - Al consultar datos este solo señalara la cantidad de datos en el arreglo
 - Puedo trabajar con esto haciendo que el arreglo busque un numero espesifico, esto no se hizo asi pues para una busqueda de este tipo debi iniciar con un arbol binario como base
 - Interprete el actualizar como brindar una list de lo mas reciente, no obstante otra opcion puede reflejar el cambio en tiempo real en una ventana emergente, tendria que investigar al respecto
+- se habilito la opcion de cerrar aplicacion.
 
-Nota: Eliminar archivos y salir de la aplicacion queda pendiente.
+Nota: Eliminar archivos de la aplicacion/cartpeta queda pendiente.
 //--------------------------------------------------------------
 */
 
@@ -76,6 +77,7 @@ public class cliente_h extends Thread
                     case 4: // eliminara un elemento compuesto - cliente
                     break;
                     case 5: // saldra de la aplicacion - cliente
+                    salir = true;
                     break;
                     default: // para recibir siempre el mensaje, pues permanece abierto para recibir la opcion
                     mensaje = in.readUTF(); 

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.net.Socket;
 
 /*
 //--------------------------------------------------------------
@@ -15,6 +16,7 @@ import java.io.FileWriter;
 - El agregar tipo de dato agiliza el procedimiento generando numeros aleatorios del 1 al 10.
 - Se implemento un contador varios metodos para llevar el conteo de elementos almacenados.
 - Se utiliza un arreglo para imprimir los datos, este a su vez actua como filtro, divide los datos impresos y muestra el numero de interes.
+- se habilito la opcion de cerrar aplicacion.
 
 Nota: cliete_h posee los datos puntuados y notas pendientes.
 //--------------------------------------------------------------
@@ -25,20 +27,23 @@ public class servidor_h extends Thread
     private DataInputStream in;
     private DataOutputStream out;
     private String usuario;
+    private Socket sc;
 
-    public servidor_h (DataInputStream in, DataOutputStream out, String usuario)
+    public servidor_h (DataInputStream in, DataOutputStream out, String usuario, Socket sc)
     {
         this.in = in;
         this.out = out;
         this.usuario = usuario;
+        this.sc = sc;
     }
 
     public void run()
     {
         int opcion;
         File f = new File("Reporte_Generado.txt"); // imprime archivo de texto plano con datos referentes
+        boolean salir = false;
 
-        while(true)
+        while(!salir)
         {
             try
             {
@@ -68,6 +73,8 @@ public class servidor_h extends Thread
                     case 4: // eliminara un elemento compuesto - servidor
                     break;
                     case 5: // saldra de la aplicacion - servidor
+                    System.out.println("Cerrando secion...");
+                    salir = true;
                     break;
                     default:
                     out.writeUTF("Seleccione una opcion segun su numero:");
@@ -78,6 +85,14 @@ public class servidor_h extends Thread
                 e.printStackTrace(); // Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        try
+        {
+            sc.close();
+        } catch (Exception e)
+        {
+            // no se que poner aqui
+        }
+        System.out.println("Conexion terminada con " + usuario);
     }
     // este texto plano es lo que se vera reflejado como contenido en el archivo generado
     public void ImpNum(File f, int aleatorio) throws IOException

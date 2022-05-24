@@ -37,7 +37,7 @@ public class servidor
                 out.writeUTF("Incerte nombre de ususario: ");
                 String usuario = in.readUTF();
 
-                servidor_h hilo = new servidor_h(in, out, usuario);
+                servidor_h hilo = new servidor_h(in, out, usuario, sc);
                 hilo.start(); //inicia hilo dedicado por usuario
             
                 System.out.println("Conexion establecida con " + usuario);
