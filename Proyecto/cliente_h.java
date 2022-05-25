@@ -4,6 +4,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.Scanner;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
 //--------------------------------------------------------------
 - Usuarios identificados como idependientes deswde diferentes instancias.
@@ -89,9 +92,9 @@ public class cliente_h extends Thread
                     System.out.println(mensaje);
                     break;
                 }
-            } catch (Exception e)
+            } catch (Exception ex) // e
             {
-                e.printStackTrace(); // check ---------
+                Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); // e.printStackTrace(); // 
             }
         }
     }

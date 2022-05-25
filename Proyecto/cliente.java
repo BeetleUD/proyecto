@@ -5,8 +5,9 @@ import java.net.Socket;
 import java.util.Scanner;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
 //--------------------------------------------------------------
@@ -26,7 +27,7 @@ public class cliente
 
             sn.useDelimiter("\n"); 
 
-            Socket sc = new Socket("", 5032); // entre comillas la direccion ip
+            Socket sc = new Socket("", 7032); // entre comillas la direccion ip
         
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
@@ -41,12 +42,12 @@ public class cliente
             hilo.start();
             hilo.join();
             
-        } catch (IOException e) // ex
+        } catch (IOException ex) // e
         {
-            e.printStackTrace(); // Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (InterruptedException e) // ex
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); // e.printStackTrace(); // 
+        }catch (InterruptedException ex) // e
         {
-            e.printStackTrace(); //Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); // e.printStackTrace(); // 
         }
     }
 }

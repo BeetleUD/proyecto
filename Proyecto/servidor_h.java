@@ -11,6 +11,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.Socket;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
 //--------------------------------------------------------------
 - Complemento que sive al cliente, una instancia que confirma y responde.
@@ -86,9 +89,9 @@ public class servidor_h extends Thread
                     out.writeUTF("Seleccione una opcion segun su numero:");
                     break;
                 }
-            } catch (IOException e) // ex
+            } catch (IOException ex) // e
             {
-                e.printStackTrace(); // Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); // e.printStackTrace(); // 
             }
         }
         

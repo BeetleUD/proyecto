@@ -5,8 +5,9 @@ import java.net.Socket;
 import java.net.ServerSocket;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
 //--------------------------------------------------------------
@@ -22,7 +23,7 @@ public class servidor
     {
         try 
         {
-            ServerSocket server = new ServerSocket(5032);
+            ServerSocket server = new ServerSocket(7032);
             Socket sc;
 
             System.out.println("--- Servidor iniciado ---");
@@ -42,9 +43,9 @@ public class servidor
             
                 System.out.println("Conexion establecida con " + usuario + ".");
             }
-        }catch (IOException e) // ex
+        }catch (IOException ex)// e
         {
-            e.printStackTrace(); // Logger.getLogger(servidor.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(servidor.class.getName()).log(Level.SEVERE, null, ex); //  e.printStackTrace(); // 
         }
     }
 }
