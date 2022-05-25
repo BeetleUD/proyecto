@@ -49,7 +49,7 @@ public class servidor_h extends Thread
         {
             try
             {
-                ArrayList<Integer> NumS = NumList(f);
+                ArrayList<Integer> NumS = NumList(f); // paso de estar en el case 3 a fuera para servir en el 4
                 opcion = in.readInt();
                 
                 switch(opcion)
