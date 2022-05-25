@@ -26,7 +26,7 @@ public class cliente
 
             sn.useDelimiter("\n"); 
 
-            Socket sc = new Socket("", 5050); // entre comillas la direccion ip
+            Socket sc = new Socket("", 5032); // entre comillas la direccion ip
         
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());

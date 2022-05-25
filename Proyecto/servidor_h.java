@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.Socket;
 
@@ -36,17 +37,19 @@ public class servidor_h extends Thread
         this.usuario = usuario;
         this.sc = sc;
     }
-
+    
+    @Override
     public void run()
     {
         int opcion;
-        File f = new File("Reporte_Generado.txt"); // imprime archivo de texto plano con datos referentes (ejem: el reporte señalara el usuario y el dato introducido)
+        File f = new File("Reporte_Generado.txt"); // imprime archivo de texto plano con datos referentes (ejem: el reporte seÃ±alara el usuario y el dato introducido)
         boolean salir = false;
 
         while(!salir)
         {
             try
             {
+                ArrayList<Integer> NumS = NumList(f);
                 opcion = in.readInt();
                 
                 switch(opcion)
@@ -62,7 +65,6 @@ public class servidor_h extends Thread
                     out.writeInt(almacenado); // devuelve una lista de los numeros generados independientemente del usuario de origen
                     break;
                     case 3: // actualizara el conjunto - servidor
-                    ArrayList<Integer> NumS = NumList(f);
                     out.writeInt(NumS.size());
 
                     for(int D:NumS)
@@ -71,7 +73,8 @@ public class servidor_h extends Thread
                     }
                     break;
                     case 4: // eliminara un elemento compuesto - servidor
-                    NumS.remove(new Integer(NumS)); // Recibe el dato exacto a buscar --------------- sujeto a pruebas...
+                    String Elim = in.toString(); // Recibe el dato exacto a buscar --------------- sujeto a pruebas...
+                    NumS.remove((Elim)); // new Integer // 
                     System.out.println("El usuarion " + usuario + " a realizado un cambio."); // confirma adicion
                     out.writeUTF("Se a eliminado un dato almacenado.\n");
                     break;
@@ -106,14 +109,14 @@ public class servidor_h extends Thread
         fw.close();
     }
 
-    public int AlmTot(File f) // el numero de datos incrementa con el contador cada que detecta uno nuevo
+    public int AlmTot(File f) throws IOException // el numero de datos incrementa con el contador cada que detecta uno nuevo
     {
         int almacenado = 0;
 
-        BufferedReader br = new BufferReader(new fileReader(f)); 
+        BufferedReader br = new BufferedReader(new FileReader(f)); 
         String dato = "";
 
-        while ((dato = br.readerLine()) != null)
+        while ((dato = br.readLine()) != null)
         {
             almacenado++; 
         }
@@ -125,18 +128,17 @@ public class servidor_h extends Thread
     {
         ArrayList<Integer> NumS = new ArrayList<>();
 
-        BufferedReader br = new BufferReader(new fileReader(f));
+        BufferedReader br = new BufferedReader(new FileReader(f));
         String dato = "";
 
-        while ((dato = br.readerLine()) != null)
+        while ((dato = br.readLine()) != null)
         {
             String[] dato2 = dato.split(":"); // nos aseguramos de tomar el numero /tipo de dato/
 
             int Num = Integer.parseInt(dato2[1]);
-
-            NumS++; 
-        }  // regresa ciclado
+            NumS.add(Num);
+        }  
         br.close();
-        return NumS;
+		return NumS; // cicla proceso
     }
 }

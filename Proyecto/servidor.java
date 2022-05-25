@@ -22,7 +22,7 @@ public class servidor
     {
         try 
         {
-            ServerSocket server = new ServerSocket(5050);
+            ServerSocket server = new ServerSocket(5032);
             Socket sc;
 
             System.out.println("--- Servidor iniciado ---");

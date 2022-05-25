@@ -7,7 +7,7 @@ import java.util.Scanner;
 /*
 //--------------------------------------------------------------
 - Usuarios identificados como idependientes deswde diferentes instancias.
-- Al consultar datos este solo señalara la cantidad de datos en el arreglo
+- Al consultar datos este solo seÃ±alara la cantidad de datos en el arreglo
 - Puedo trabajar con esto haciendo que el arreglo busque un numero espesifico, esto no se hizo asi pues para una busqueda de este tipo debi iniciar con un arbol binario como base
 - Interprete el actualizar como brindar una list de lo mas reciente, no obstante otra opcion puede reflejar el cambio en tiempo real en una ventana emergente, tendria que investigar al respecto
 - se habilito la opcion de cerrar aplicacion.
@@ -26,7 +26,8 @@ public class cliente_h extends Thread
         this.in = in;
         this.out = out;
     }
-
+    
+    @Override
     public void run()
     {
         Scanner sn = new Scanner(System.in);
@@ -62,7 +63,7 @@ public class cliente_h extends Thread
                     break;
                     case 2: // consultara los tipos de datos - cliente
                     int almacenado = in.readInt();
-                    System.out.println("Se tienen " + almancenado + " tipos de datos almacenados."); // refiriendoce a un conjunto de 2 como 1
+                    System.out.println("Se tienen " + almacenado + " tipos de datos almacenados."); // refiriendoce a un conjunto de 2 como 1
                     break;
                     case 3: // actualizara el conjunto  - cliente
                     System.out.println("----------------------------\n");
@@ -77,9 +78,8 @@ public class cliente_h extends Thread
                     case 4: // eliminara un elemento compuesto - cliente
                     System.out.println("Introdusca el valor del dato a eliminar: ");
                     
-                    out.writeInt(Elim);
-                    NumS.remove(new Integer(Elim)); // Recibe el dato exacto a buscar --------------- sujeto a pruebas...
-
+                    // Recibe el dato exacto a buscar --------------- sujeto a pruebas...
+                    
                     break;
                     case 5: // saldra de la aplicacion - cliente
                     salir = true;
