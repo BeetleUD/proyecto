@@ -3,7 +3,6 @@ package Proyecto;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.Scanner;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,6 +13,7 @@ import java.util.logging.Logger;
 - Puedo trabajar con esto haciendo que el arreglo busque un numero espesifico, esto no se hizo asi pues para una busqueda de este tipo debi iniciar con un arbol binario como base
 - Interprete el actualizar como brindar una list de lo mas reciente, no obstante otra opcion puede reflejar el cambio en tiempo real en una ventana emergente, tendria que investigar al respecto
 - se habilito la opcion de cerrar aplicacion.
+- case 3: Se debe señalar un dato existente de lo contrario... se debe crear una pocion/ mnesaje que señale si esta o no el dato
 
 Nota: Eliminar archivos de la aplicacion/cartpeta queda pendiente.
 //--------------------------------------------------------------
@@ -53,14 +53,14 @@ public class cliente_h extends Thread
                 + "----------------------------\n");
 
                 opcion = sn.nextInt();
-                out.writeInt(opcion); // check ---------
+                out.writeInt(opcion);
                 
                 switch(opcion)
                 {
                     case 1: //  agregara tipo de dato - cliente
                     int aleatorio = RandomNum(1,10); // llama a RandomNum para generar un numero
                     System.out.println("Se a generado un numero: " + aleatorio + ".\n"); // confirma dato introducido
-                    out.writeInt(aleatorio); // opcion
+                    out.writeInt(aleatorio);
                     mensaje = in.readUTF();
                     System.out.println(mensaje);
                     break;
@@ -78,11 +78,9 @@ public class cliente_h extends Thread
                     }
                     System.out.println("----------------------------\n");
                     break;
-                    case 4: // eliminara un elemento compuesto - cliente
-                    System.out.println("Introdusca el valor del dato a eliminar: ");
-                    
-                    // Recibe el dato exacto a buscar --------------- sujeto a pruebas...
-                    
+                    case 4: // eliminara un elemento compuesto - cliente - en pruebas...
+                    mensaje = in.readUTF(); 
+                    System.out.println(mensaje);
                     break;
                     case 5: // saldra de la aplicacion - cliente
                     salir = true;

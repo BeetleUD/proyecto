@@ -3,14 +3,13 @@ package Proyecto;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.Socket;
-
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -75,18 +74,17 @@ public class servidor_h extends Thread
                         out.writeInt(D);
                     }
                     break;
-                    case 4: // eliminara un elemento compuesto - servidor
-                    String Elim = in.toString(); // Recibe el dato exacto a buscar --------------- sujeto a pruebas...
-                    NumS.remove((Elim)); // new Integer // 
-                    System.out.println("El usuarion " + usuario + " a realizado un cambio."); // confirma adicion
-                    out.writeUTF("Se a eliminado un dato almacenado.\n");
+                    case 4: // eliminara un elemento compuesto - servidor - en pruebas
+                    Elim = in.readInt(); // se debe señalar un dato exacto
+                    NumS.remove(new Integer(Elim));
+                    out.writeUTF("Se a eliminda un dato un cambio.\n");
                     break;
                     case 5: // saldra de la aplicacion - servidor
                     System.out.println("Cerrando secion...");
                     salir = true;
                     break;
                     default:
-                    out.writeUTF("Seleccione una opcion segun su numero:");
+                    out.writeUTF("Error, señale una opcion valida.");
                     break;
                 }
             } catch (IOException ex) // e
