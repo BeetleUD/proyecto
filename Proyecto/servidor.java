@@ -11,8 +11,9 @@ import java.util.logging.Logger;
 /*
 //--------------------------------------------------------------
 - Se debe corroborar tanto IP como puerto antes de su ejecucion.
+- En esencia, esta parte administra la entrada de nuevos usuarios y dedica un hilo a cada uno.
 
-Nota: Debe estar activo sntes de activar el cliente.
+Nota: Debe estar activo antes de activar el cliente.
 //--------------------------------------------------------------
 */
 
@@ -38,13 +39,13 @@ public class servidor
                 String usuario = in.readUTF();
 
                 servidor_h hilo = new servidor_h(in, out, usuario, sc);
-                hilo.start(); //inicia hilo dedicado por usuario
+                hilo.start();
             
                 System.out.println("Conexion establecida con " + usuario + ".");
             }
-        }catch (IOException ex)// e
+        }catch (IOException ex)
         {
-           Logger.getLogger(servidor.class.getName()).log(Level.SEVERE, null, ex); //  e.printStackTrace(); // 
+           Logger.getLogger(servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

@@ -75,7 +75,7 @@ public class servidor_h extends Thread
                     }
                     break;
                     case 4: // eliminara un elemento compuesto - servidor - en pruebas
-                    Elim = in.readInt(); // se debe señalar un dato exacto
+                    int Elim = in.readInt(); // se debe señalar un dato exacto
                     NumS.remove(new Integer(Elim));
                     out.writeUTF("Se a eliminda un dato un cambio.\n");
                     break;
@@ -87,9 +87,9 @@ public class servidor_h extends Thread
                     out.writeUTF("Error, señale una opcion valida.");
                     break;
                 }
-            } catch (IOException ex) // e
+            } catch (IOException ex)
             {
-                Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); // e.printStackTrace(); // 
+                Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         

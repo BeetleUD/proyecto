@@ -11,8 +11,11 @@ import java.util.logging.Logger;
 /*
 //--------------------------------------------------------------
 - La IP debe ser correcta y ser introducida antes de su ejecucucion y luego de tener el servidor en linea.
+- Linea 29: el numero entre comillas corresponde al HOST
+- En respuesta a la entrada del servidor que detecta un nuevo usuario, el cliente marcara (como si fuese un "checkador" su entrada o salida) 
+- Reflejara todos sus movimientos en otras secciones partiendo de A.
 
-Nota: Si el cliente no corre habra que modificar el IOException "e" a "ex".
+Nota: Revisar que el servidor este en linea antes de su ejecucion.
 //--------------------------------------------------------------
 */
 
@@ -26,7 +29,7 @@ public class cliente
 
             sn.useDelimiter("\n"); 
 
-            Socket sc = new Socket("", 7032); // entre comillas la direccion ip
+            Socket sc = new Socket("", 7032); // -------------------
         
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
@@ -41,12 +44,12 @@ public class cliente
             hilo.start();
             hilo.join();
             
-        } catch (IOException ex) // e
+        } catch (IOException ex)
         {
-            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); // e.printStackTrace(); // 
-        }catch (InterruptedException ex) // e
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); 
+        }catch (InterruptedException ex)
         {
-            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); // e.printStackTrace(); // 
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

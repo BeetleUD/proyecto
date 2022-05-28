@@ -10,12 +10,13 @@ import java.util.logging.Logger;
 //--------------------------------------------------------------
 - Usuarios identificados como idependientes deswde diferentes instancias.
 - Al consultar datos este solo seÃ±alara la cantidad de datos en el arreglo
+- la idea inicial fue utilizar JO, pero esa opcion queda descartada por la adaptacion de interfaces en ambos puntos
 - Puedo trabajar con esto haciendo que el arreglo busque un numero espesifico, esto no se hizo asi pues para una busqueda de este tipo debi iniciar con un arbol binario como base
 - Interprete el actualizar como brindar una list de lo mas reciente, no obstante otra opcion puede reflejar el cambio en tiempo real en una ventana emergente, tendria que investigar al respecto
 - se habilito la opcion de cerrar aplicacion.
-- case 3: Se debe señalar un dato existente de lo contrario... se debe crear una pocion/ mnesaje que señale si esta o no el dato
+- case 3: Se debe señalar un dato existente de lo contrario... se debe crear una pocion/mnesaje que señale si esta o no el dato.
 
-Nota: Eliminar archivos de la aplicacion/cartpeta queda pendiente.
+Nota: Eliminar archivos de la aplicacio no es prioridad, es opcional, asi mismo, lo es el ofreser la opcion de eliminar todo o pedir confirmacion para borrar del almacenamiento no impreso.
 //--------------------------------------------------------------
 */
 
@@ -41,7 +42,6 @@ public class cliente_h extends Thread
 
         while (!salir)
         {
-            // al principio la idea era utilizar JO, pero esa opcion queda descartada por la adaptacion de interfaces en ambos puntos
             try
             {
                 System.out.println("----------------------------\n"
@@ -90,9 +90,9 @@ public class cliente_h extends Thread
                     System.out.println(mensaje);
                     break;
                 }
-            } catch (Exception ex) // e
+            } catch (Exception ex)
             {
-                Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex); // e.printStackTrace(); // 
+                Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
